@@ -1,25 +1,17 @@
 # OpenstackYogaInstallScript
 
 ## Openstack install 과정
-OpenStack은 클라우드 컴퓨팅 플랫폼으로, 사용자에게 인프라를 제공함. 오픈스택은 다양한 서비스가 API를통해 메시지를 주고 받는 구조로 되어있음.
-
-우선 가상머신을 만들어 Control Node, Computing Node에 리소스를 할당해주고, 가이드 상의 네트워크 레이아웃에 맞추어 네트워크 설정을 해줌
-
-OpenStack의 서비스는 모두 SQL database안에 정보를 저장하고, 메시지 기반으로 통신을 함. 이를 위해 MariaDB, RabbitMQ를 설치해 줌.
-
-인증과 보안을 위해 Memcached, Etcd를 설치함.
-
-Identity service인 Keystone을 먼저 설치함. 이를 통해 분리된 서비스 간에 인증을 하고 통신이 가능함.
-
-구축한 OpenStack 클라우드 사용자에게 VM의 이미지를 할당해주는 서비스인 Glance를 설치함.
-
-JSON 기반의 HTTP API인 Placement 를 설치함. 이는 Compute 서비스인 nova가 이용하게 됨.  그래서 Nova의 요구사항에 맞추어 Placement의 설정도 해주어야 함.
-
-Compute Service인 Nova를 설치함. 엔드유저의 API 요청을 받아 주고, VM인스턴스를 생성 및 스케쥴링 등의역할을 담당함.
-
-Networking service인 Neutron 을 설치하여, NAT를 통해 물리적 네트워크와 연결된 private network를 만듬.
-
-사양, VM 이미지 이름, 네트워크, 보안 그룹, 키, 인스턴스 이름 등의 정보로 인스턴스를 생성해봄. 생성한 인스턴스들의 대시보드를 볼 수 있는 Horizon 서비스도 설치함.
+- OpenStack은 클라우드 컴퓨팅 플랫폼으로, 사용자에게 인프라를 제공합니다. OpenStack은 다양한 서비스가 API를통해 메시지를 주고 받는 구조로 되어있습니다.
+- 우선 가상머신을 만들어 Control Node, Computing Node에 리소스를 할당해주고, 가이드 상의 네트워크 레이아웃에 맞추어 네트워크 설정을 합니다.
+- OpenStack의 서비스는 모두 SQL database안에 정보를 저장하고, 메시지 기반으로 통신을 합니다. 이를 위해 관계형 데이터베이스 MariaDB, 메시지 큐인 RabbitMQ를 설치해 줍니다.
+- 인증과 보안을 위해 Memcached, Etcd를 설치합니다.
+- Identity service인 Keystone을 먼저 설치합니다. 이를 통해 분리된 서비스 간에 인증을 하고 통신이 가능합니다.
+- 구축한 OpenStack 클라우드 사용자에게 VM의 이미지를 할당해주는 서비스인 Glance를 설치합니다.
+- JSON 기반의 HTTP API인 Placement 를 설치합니다. 이는 Compute 서비스인 nova가 이용하게 됩니다.  그래서 Nova의 요구사항에 맞추어 Placement의 설정도 해주어야 합니다.
+- Compute Service인 Nova를 설치합니다. 엔드유저의 API 요청을 받아 주고, VM인스턴스를 생성 및 스케쥴링 등의 역할을 담당합니다.
+- Networking service인 Neutron 을 설치하여, NAT를 통해 물리적 네트워크와 연결된 private network를 만듭니다.
+- 사양, VM 이미지 이름, 네트워크, 보안 그룹, 키, 인스턴스 이름 등의 정보로 인스턴스를 생성합니다.
+- 생성한 인스턴스들의 대시보드를 볼 수 있는 Horizon 서비스도 설치함.
 
 ## 테스트 환경
 
